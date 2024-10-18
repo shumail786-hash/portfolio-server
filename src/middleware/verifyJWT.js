@@ -3,7 +3,7 @@ import { Admin } from "../models/adminModel.js";
 import { ApiError } from "../utils/ApiError.js";
 
 export const verifyJWT = async function (req, res, next) {
-  const token = req.header("Authorization");
+  const token = req.header("Authorization")?.replace("Bearer ", "");
   if (!token) return res.json(new ApiError(404, "Unauthorized Request", false));
   try {
     const decodedToken = jwt.verify(token, process.env.SECRET_ACCESS_TOKEN);
