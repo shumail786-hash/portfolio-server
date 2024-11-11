@@ -12,5 +12,6 @@ router
     upload.single("projectThumbnail"),
     projectsController.uploadProjects
   );
+router.route("/getAllProjects").get(projectsController.getAllProjects);
 
 export default router;

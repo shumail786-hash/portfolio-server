@@ -18,6 +18,14 @@ const projectsSchema = new Schema({
     type: String,
     required: true,
   },
+  tags: [
+    {
+      name: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
   createdAt: {
     type: String,
     default: dayjs(new Date().toISOString()).format("DD-MM-YYYY hh:mm:ss A"),
